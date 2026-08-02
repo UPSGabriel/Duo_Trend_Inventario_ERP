@@ -31,7 +31,7 @@ La aplicación sigue una estructura feature-first. Cada feature separa presentac
 
 ## Requisitos
 
-- Flutter estable compatible con Dart `>=3.10.0 <4.0.0`.
+- Flutter 3.44.7, con Dart compatible con `>=3.10.0 <4.0.0`.
 - Android Studio, Android SDK y licencias aceptadas.
 - Visual Studio 2022 con **Desktop development with C++** para Windows.
 - Docker Desktop y Supabase CLI para validar la base de datos local.
