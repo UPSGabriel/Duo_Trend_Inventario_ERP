@@ -17,7 +17,7 @@ const testConfig = AppConfig(
 
 Widget createTestApp({String initialLocation = RoutePaths.login}) {
   return ProviderScope(
-    overrides: <Override>[
+    overrides: [
       appConfigProvider.overrideWithValue(testConfig),
     ],
     child: DuoTrendApp(
@@ -25,3 +25,4 @@ Widget createTestApp({String initialLocation = RoutePaths.login}) {
     ),
   );
 }
+

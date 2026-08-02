@@ -78,10 +78,11 @@ values
   );
 
 set local role anon;
-select is(
-  (select count(*) from public.organizations),
-  0::bigint,
-  'anon no puede leer organizaciones'
+select throws_ok(
+  $$select count(*) from public.organizations$$,
+  '42501',
+  'permission denied for table organizations',
+  'anon no tiene privilegio de lectura en organizaciones'
 );
 reset role;
 
@@ -166,3 +167,4 @@ reset role;
 
 select * from finish();
 rollback;
+

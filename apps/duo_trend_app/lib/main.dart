@@ -21,10 +21,11 @@ Future<void> main() async {
 
   runApp(
     ProviderScope(
-      overrides: <Override>[
+      overrides: [
         appConfigProvider.overrideWithValue(config),
       ],
       child: const DuoTrendApp(),
     ),
   );
 }
+

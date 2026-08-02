@@ -32,7 +32,7 @@ select col_is_fk('public', 'profiles', 'id', 'profiles.id referencia auth.users'
 
 select results_eq(
   $$
-    select enumlabel::text
+    select enumlabel::text collate "C"
     from pg_enum
     join pg_type on pg_type.oid = pg_enum.enumtypid
     join pg_namespace on pg_namespace.oid = pg_type.typnamespace
@@ -40,13 +40,13 @@ select results_eq(
       and pg_type.typname = 'app_role'
     order by enumsortorder
   $$,
-  array['OWNER', 'MANAGER', 'SELLER', 'VIEWER']::text[],
+  array['OWNER', 'MANAGER', 'SELLER', 'VIEWER']::text[] collate "C",
   'roles previstos y ordenados'
 );
 
 select results_eq(
-  $$select code from public.business_units order by code$$,
-  array['BELLEZA_MODA', 'TECNOLOGIA_ACCESORIOS']::text[],
+  $$select code collate "C" from public.business_units order by code collate "C"$$,
+  array['BELLEZA_MODA', 'TECNOLOGIA_ACCESORIOS']::text[] collate "C",
   'unidades iniciales reproducibles'
 );
 
@@ -107,3 +107,4 @@ select ok(
 
 select * from finish();
 rollback;
+
