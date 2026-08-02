@@ -112,9 +112,9 @@ class LoginScreen extends ConsumerWidget {
                   : Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
-                        welcomePanel,
-                        const SizedBox(height: 24),
                         accessPanel,
+                        const SizedBox(height: 24),
+                        welcomePanel,
                       ],
                     ),
             ),
