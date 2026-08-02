@@ -41,6 +41,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child: DropdownButtonFormField<BusinessScope>(
                 key: const Key('business-scope-selector'),
                 initialValue: _scope,
+                isExpanded: true,
                 decoration: const InputDecoration(
                   labelText: 'Alcance',
                   prefixIcon: Icon(Icons.storefront_outlined),
@@ -49,7 +50,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     .map(
                       (BusinessScope scope) => DropdownMenuItem<BusinessScope>(
                         value: scope,
-                        child: Text(scope.label),
+                        child: Text(
+                          scope.label,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                     )
                     .toList(growable: false),
