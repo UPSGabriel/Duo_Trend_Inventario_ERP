@@ -1,0 +1,9 @@
+{
+  "@@locale": "es",
+  "appName": "Duo Trend ERP",
+  "home": "Inicio",
+  "balance": "Balance",
+  "debts": "Deudas",
+  "inventory": "Inventario",
+  "settings": "Configuración"
+}

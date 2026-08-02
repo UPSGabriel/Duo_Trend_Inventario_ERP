@@ -1,0 +1,73 @@
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+**/config/*.local.json
+**/config/*.dev.json
+**/config/*.prod.json
+
+# Secrets, signing and credentials
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+*.crt
+key.properties
+android/key.properties
+google-services.json
+GoogleService-Info.plist
+
+# Flutter and Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+coverage/
+doc/api/
+*.iml
+.metadata.local
+
+# Android
+**/android/.gradle/
+**/android/local.properties
+**/android/captures/
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+
+# Windows and native builds
+**/windows/flutter/ephemeral/
+**/windows/x64/
+**/windows/arm64/
+**/windows/.plugin_symlinks/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+
+# Supabase local state
+supabase/.branches/
+supabase/.temp/
+supabase/.env
+supabase/.env.*
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs, exports and private test data
+*.log
+*.zip
+*.bak
+exports/
+backups/
+private_test_data/

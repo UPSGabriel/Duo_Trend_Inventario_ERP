@@ -1,0 +1,45 @@
+name: Windows build
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Release bundle verification
+    runs-on: windows-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: apps/duo_trend_app
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.44.7
+          cache: true
+      - name: Enable Windows desktop
+        run: flutter config --enable-windows-desktop
+      - name: Resolve dependencies
+        run: flutter pub get
+      - name: Generate localizations
+        run: flutter gen-l10n
+      - name: Build Windows release with non-secret defaults
+        run: flutter build windows --release
+      - name: Upload complete Windows bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: duo-trend-windows-release
+          path: apps/duo_trend_app/build/windows/**/runner/Release/**
+          if-no-files-found: error
