@@ -20,12 +20,14 @@ class SettingsScreen extends ConsumerWidget {
         children: <Widget>[
           const PageHeader(
             title: 'Configuración',
-            description: 'Estado técnico y preferencias regionales de Duo Trend.',
+            description:
+                'Estado técnico y preferencias regionales de Duo Trend.',
           ),
           const SizedBox(height: 24),
           const PhaseNotice(
             title: 'Valores protegidos',
-            message: 'Esta pantalla solo muestra estados. Nunca presenta URLs, '
+            message:
+                'Esta pantalla solo muestra estados. Nunca presenta URLs, '
                 'claves, correos ni tokens configurados.',
             icon: Icons.security_outlined,
           ),
@@ -79,10 +81,7 @@ class SettingsScreen extends ConsumerWidget {
                 label: 'Acceso a datos',
                 value: 'RLS y membresía en PostgreSQL',
               ),
-              _ValueTile(
-                label: 'Service role',
-                value: 'Prohibida en Flutter',
-              ),
+              _ValueTile(label: 'Service role', value: 'Prohibida en Flutter'),
             ],
           ),
         ],

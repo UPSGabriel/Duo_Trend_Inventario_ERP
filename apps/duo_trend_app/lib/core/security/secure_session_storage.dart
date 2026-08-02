@@ -3,7 +3,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SecureSessionStorage extends LocalStorage {
   SecureSessionStorage({FlutterSecureStorage? storage})
-      : _storage = storage ?? const FlutterSecureStorage();
+    : _storage = storage ?? const FlutterSecureStorage();
 
   static const _sessionKey = 'duo_trend.auth.session';
 
@@ -20,10 +20,7 @@ class SecureSessionStorage extends LocalStorage {
 
   @override
   Future<void> persistSession(String persistSessionString) {
-    return _storage.write(
-      key: _sessionKey,
-      value: persistSessionString,
-    );
+    return _storage.write(key: _sessionKey, value: persistSessionString);
   }
 
   @override

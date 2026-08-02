@@ -168,9 +168,7 @@ class _DesktopShell extends StatelessWidget {
             ),
           ),
           const VerticalDivider(width: 1),
-          Expanded(
-            child: SafeArea(child: child),
-          ),
+          Expanded(child: SafeArea(child: child)),
         ],
       ),
     );

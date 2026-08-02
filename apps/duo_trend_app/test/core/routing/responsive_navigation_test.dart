@@ -12,9 +12,7 @@ void main() {
     tester.view.physicalSize = const Size(390, 844);
     addTearDown(tester.view.reset);
 
-    await tester.pumpWidget(
-      createTestApp(initialLocation: RoutePaths.home),
-    );
+    await tester.pumpWidget(createTestApp(initialLocation: RoutePaths.home));
     await tester.pumpAndSettle();
 
     expect(find.byType(NavigationBar), findsOneWidget);
@@ -23,7 +21,10 @@ void main() {
     await tester.tap(find.text('Balance').last);
     await tester.pumpAndSettle();
 
-    expect(find.text('Flujo de caja separado de la utilidad contable.'), findsOneWidget);
+    expect(
+      find.text('Flujo de caja separado de la utilidad contable.'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('usa NavigationRail en ancho de escritorio', (

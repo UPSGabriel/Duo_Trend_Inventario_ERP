@@ -30,9 +30,7 @@ class _DuoTrendAppState extends State<DuoTrendApp> {
       debugShowCheckedModeBanner: false,
       title: 'Duo Trend ERP',
       locale: const Locale('es', 'EC'),
-      supportedLocales: const <Locale>[
-        Locale('es', 'EC'),
-      ],
+      supportedLocales: const <Locale>[Locale('es', 'EC')],
       localizationsDelegates: GlobalMaterialLocalizations.delegates,
       theme: AppTheme.light(),
       routerConfig: _router,

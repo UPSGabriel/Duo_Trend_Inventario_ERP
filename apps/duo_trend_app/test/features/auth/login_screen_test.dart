@@ -18,10 +18,7 @@ void main() {
     await tester.tap(find.text('Continuar con Google'));
     await tester.pumpAndSettle();
 
-    expect(
-      find.text('Google OAuth aún no está habilitado'),
-      findsOneWidget,
-    );
+    expect(find.text('Google OAuth aún no está habilitado'), findsOneWidget);
     expect(find.textContaining('No se creó ninguna sesión'), findsOneWidget);
   });
 
@@ -31,9 +28,6 @@ void main() {
     await tester.pumpWidget(createTestApp());
     await tester.pumpAndSettle();
 
-    expect(
-      find.byKey(const Key('open-navigation-preview')),
-      findsOneWidget,
-    );
+    expect(find.byKey(const Key('open-navigation-preview')), findsOneWidget);
   });
 }

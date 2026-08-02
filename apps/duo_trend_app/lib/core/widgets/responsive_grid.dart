@@ -20,8 +20,8 @@ class ResponsiveGrid extends StatelessWidget {
         final columns = calculatedColumns < 1
             ? 1
             : calculatedColumns > 4
-                ? 4
-                : calculatedColumns;
+            ? 4
+            : calculatedColumns;
         final itemWidth =
             (constraints.maxWidth - (spacing * (columns - 1))) / columns;
 

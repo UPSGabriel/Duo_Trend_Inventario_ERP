@@ -3,19 +3,18 @@ import 'package:flutter/material.dart';
 
 abstract final class AppTheme {
   static ThemeData light() {
-    final colorScheme = ColorScheme.fromSeed(
-      seedColor: AppColors.warmYellow,
-    ).copyWith(
-      primary: AppColors.deepBlue,
-      onPrimary: Colors.white,
-      secondary: AppColors.warmYellow,
-      onSecondary: AppColors.ink,
-      tertiary: AppColors.positive,
-      error: AppColors.negative,
-      surface: AppColors.surface,
-      onSurface: AppColors.ink,
-      outline: AppColors.outline,
-    );
+    final colorScheme = ColorScheme.fromSeed(seedColor: AppColors.warmYellow)
+        .copyWith(
+          primary: AppColors.deepBlue,
+          onPrimary: Colors.white,
+          secondary: AppColors.warmYellow,
+          onSecondary: AppColors.ink,
+          tertiary: AppColors.positive,
+          error: AppColors.negative,
+          surface: AppColors.surface,
+          onSurface: AppColors.ink,
+          outline: AppColors.outline,
+        );
 
     const roundedShape = RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(18)),
@@ -73,9 +72,7 @@ abstract final class AppTheme {
         ),
       ),
       textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(
-          minimumSize: const Size(48, 48),
-        ),
+        style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
       ),
       textTheme: const TextTheme(
         headlineMedium: TextStyle(

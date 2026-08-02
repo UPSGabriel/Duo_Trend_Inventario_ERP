@@ -65,9 +65,9 @@ class _DebtsScreenState extends State<DebtsScreen> {
                 : 'No hay cuentas por pagar',
             message: receivable
                 ? 'Aquí aparecerán cliente, venta, saldo, vencimiento e '
-                    'historial de pagos después de implementar ventas a crédito.'
+                      'historial de pagos después de implementar ventas a crédito.'
                 : 'Aquí aparecerán proveedor, compra, saldo, vencimiento e '
-                    'historial después de implementar compras a crédito.',
+                      'historial después de implementar compras a crédito.',
           ),
         ],
       ),

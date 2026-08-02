@@ -64,7 +64,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
           const SizedBox(height: 24),
           const PhaseNotice(
             title: 'Vista previa de Fase 0',
-            message: 'No hay sesión ni datos transaccionales. Los indicadores '
+            message:
+                'No hay sesión ni datos transaccionales. Los indicadores '
                 'se activarán después de implementar y verificar sus fuentes.',
           ),
           const SizedBox(height: 24),
@@ -97,18 +98,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ],
           ),
           const SizedBox(height: 28),
-          Text('Acciones rápidas', style: Theme.of(context).textTheme.titleLarge),
+          Text(
+            'Acciones rápidas',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           const SizedBox(height: 14),
           Wrap(
             spacing: 12,
             runSpacing: 12,
             children: const <Widget>[
-              _FutureAction(label: 'Registrar venta', icon: Icons.add_shopping_cart),
-              _FutureAction(label: 'Nueva compra', icon: Icons.local_shipping_outlined),
+              _FutureAction(
+                label: 'Registrar venta',
+                icon: Icons.add_shopping_cart,
+              ),
+              _FutureAction(
+                label: 'Nueva compra',
+                icon: Icons.local_shipping_outlined,
+              ),
               _FutureAction(label: 'Nuevo gasto', icon: Icons.receipt_outlined),
-              _FutureAction(label: 'Crear producto', icon: Icons.add_box_outlined),
+              _FutureAction(
+                label: 'Crear producto',
+                icon: Icons.add_box_outlined,
+              ),
               _FutureAction(label: 'Ajustar inventario', icon: Icons.tune),
-              _FutureAction(label: 'Registrar pago', icon: Icons.price_check_outlined),
+              _FutureAction(
+                label: 'Registrar pago',
+                icon: Icons.price_check_outlined,
+              ),
             ],
           ),
         ],

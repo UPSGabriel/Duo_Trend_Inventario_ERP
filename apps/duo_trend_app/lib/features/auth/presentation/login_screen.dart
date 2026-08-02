@@ -57,7 +57,7 @@ class LoginScreen extends ConsumerWidget {
               title: 'Integración pendiente',
               message: config.isOAuthConfigured
                   ? 'La configuración externa parece completa, pero el '
-                      'flujo Google se implementará y probará en la Fase 1.'
+                        'flujo Google se implementará y probará en la Fase 1.'
                   : 'Faltan parámetros externos y la implementación de Fase 1.',
             ),
             const SizedBox(height: 20),
@@ -85,9 +85,7 @@ class LoginScreen extends ConsumerWidget {
                 key: const Key('open-navigation-preview'),
                 onPressed: () => context.go(RoutePaths.home),
                 icon: const Icon(Icons.visibility_outlined),
-                label: const Text(
-                  'Vista previa de navegación (sin sesión)',
-                ),
+                label: const Text('Vista previa de navegación (sin sesión)'),
               ),
             ],
           ],
@@ -163,17 +161,17 @@ class _WelcomePanel extends StatelessWidget {
             const SizedBox(height: 28),
             Text(
               'Duo Trend ERP',
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    color: Colors.white,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineMedium?.copyWith(color: Colors.white),
             ),
             const SizedBox(height: 12),
             Text(
               'Tecnología, belleza y moda en una sola visión clara del negocio.',
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: Colors.white.withValues(alpha: 0.82),
-                    height: 1.45,
-                  ),
+                color: Colors.white.withValues(alpha: 0.82),
+                height: 1.45,
+              ),
             ),
             const SizedBox(height: 32),
             const _WelcomeBenefit(
@@ -219,10 +217,7 @@ class _WelcomeBenefit extends StatelessWidget {
 }
 
 class _ConfigurationRow extends StatelessWidget {
-  const _ConfigurationRow({
-    required this.label,
-    required this.configured,
-  });
+  const _ConfigurationRow({required this.label, required this.configured});
 
   final String label;
   final bool configured;

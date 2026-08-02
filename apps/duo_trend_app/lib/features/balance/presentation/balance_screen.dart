@@ -77,7 +77,8 @@ class _BalanceScreenState extends State<BalanceScreen> {
           EmptyState(
             icon: Icons.query_stats_outlined,
             title: 'Sin movimientos para ${_period.label.toLowerCase()}',
-            message: 'Las ventas, cobros, compras, gastos y pagos se '
+            message:
+                'Las ventas, cobros, compras, gastos y pagos se '
                 'mostrarán cuando sus módulos transaccionales estén listos.',
           ),
         ],

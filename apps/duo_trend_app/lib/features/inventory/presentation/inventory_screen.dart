@@ -28,7 +28,8 @@ class InventoryScreen extends StatelessWidget {
           const SizedBox(height: 24),
           const PhaseNotice(
             title: 'Sin movimientos simulados',
-            message: 'La Fase 0 no crea productos, niveles de stock ni ajustes. '
+            message:
+                'La Fase 0 no crea productos, niveles de stock ni ajustes. '
                 'PostgreSQL será la autoridad cuando se implemente el catálogo.',
           ),
           const SizedBox(height: 24),
@@ -77,18 +78,39 @@ class InventoryScreen extends StatelessWidget {
             spacing: 8,
             runSpacing: 8,
             children: <Widget>[
-              FilterChip(label: Text('Unidad'), selected: false, onSelected: null),
-              FilterChip(label: Text('Categoría'), selected: false, onSelected: null),
-              FilterChip(label: Text('Marca'), selected: false, onSelected: null),
-              FilterChip(label: Text('Stock bajo'), selected: false, onSelected: null),
-              FilterChip(label: Text('Agotados'), selected: false, onSelected: null),
+              FilterChip(
+                label: Text('Unidad'),
+                selected: false,
+                onSelected: null,
+              ),
+              FilterChip(
+                label: Text('Categoría'),
+                selected: false,
+                onSelected: null,
+              ),
+              FilterChip(
+                label: Text('Marca'),
+                selected: false,
+                onSelected: null,
+              ),
+              FilterChip(
+                label: Text('Stock bajo'),
+                selected: false,
+                onSelected: null,
+              ),
+              FilterChip(
+                label: Text('Agotados'),
+                selected: false,
+                onSelected: null,
+              ),
             ],
           ),
           const SizedBox(height: 24),
           const EmptyState(
             icon: Icons.inventory_2_outlined,
             title: 'El catálogo todavía está vacío',
-            message: 'Productos, variantes, imágenes y stock inicial pertenecen '
+            message:
+                'Productos, variantes, imágenes y stock inicial pertenecen '
                 'a la Fase 1 y requerirán RLS y pruebas transaccionales.',
           ),
         ],

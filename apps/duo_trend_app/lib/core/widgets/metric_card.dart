@@ -39,16 +39,13 @@ class MetricCard extends StatelessWidget {
               const SizedBox(height: 18),
               Text(label, style: Theme.of(context).textTheme.bodyMedium),
               const SizedBox(height: 4),
-              Text(
-                value,
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
+              Text(value, style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: 6),
               Text(
                 detail,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: AppColors.muted,
-                    ),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodySmall?.copyWith(color: AppColors.muted),
               ),
             ],
           ),

@@ -21,15 +21,8 @@ abstract final class AppRouter {
           },
         ),
         ShellRoute(
-          builder: (
-            BuildContext context,
-            GoRouterState state,
-            Widget child,
-          ) {
-            return ResponsiveShell(
-              location: state.uri.path,
-              child: child,
-            );
+          builder: (BuildContext context, GoRouterState state, Widget child) {
+            return ResponsiveShell(location: state.uri.path, child: child);
           },
           routes: <RouteBase>[
             GoRoute(
