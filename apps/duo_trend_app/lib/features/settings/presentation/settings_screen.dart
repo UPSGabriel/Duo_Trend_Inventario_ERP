@@ -47,8 +47,8 @@ class SettingsScreen extends ConsumerWidget {
               ),
               const _StatusTile(
                 label: 'Sofía y Gabriel',
-                detail: 'Autorización exclusiva mediante membresías '
-                    'administradas en Supabase',
+                detail:
+                    'Autorización exclusiva mediante membresías administradas en Supabase',
                 ready: false,
               ),
             ],
