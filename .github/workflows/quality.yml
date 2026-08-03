@@ -1,0 +1,74 @@
+name: Quality
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  flutter:
+    name: Format, analyze and test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: apps/duo_trend_app
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.44.7
+          cache: true
+      - name: Resolve dependencies
+        run: flutter pub get
+      - name: Generate localizations
+        run: flutter gen-l10n
+      - name: Check formatting
+        run: dart format --output=none --set-exit-if-changed lib test
+      - name: Analyze
+        run: flutter analyze --fatal-infos
+      - name: Test with coverage
+        run: flutter test --coverage
+      - name: Upload coverage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-coverage
+          path: apps/duo_trend_app/coverage/lcov.info
+          if-no-files-found: warn
+
+  database:
+    name: Migrations, lint and pgTAP
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: 2.111.0
+      - name: Start local Supabase
+        run: supabase start
+      - name: Rebuild from migrations
+        run: supabase db reset
+      - name: Lint local database
+        run: supabase db lint --local --level warning
+      - name: Run pgTAP tests
+        run: supabase test db
+      - name: Capture Supabase status
+        if: always()
+        run: supabase status || true
+      - name: Stop local Supabase
+        if: always()
+        run: supabase stop --no-backup

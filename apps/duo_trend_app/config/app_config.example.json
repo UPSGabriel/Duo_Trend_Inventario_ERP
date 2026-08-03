@@ -1,0 +1,7 @@
+{
+  "SUPABASE_URL": "",
+  "SUPABASE_PUBLISHABLE_KEY": "",
+  "GOOGLE_OAUTH_CLIENT_ID": "",
+  "AUTH_REDIRECT_URL": "com.duotrend.erp://login-callback/",
+  "ORGANIZATION_NAME": "Duo Trend"
+}

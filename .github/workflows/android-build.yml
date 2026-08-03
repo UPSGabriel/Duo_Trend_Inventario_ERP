@@ -1,0 +1,48 @@
+name: Android build
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: android-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Release APK verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: apps/duo_trend_app
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.44.7
+          cache: true
+      - name: Resolve dependencies
+        run: flutter pub get
+      - name: Generate localizations
+        run: flutter gen-l10n
+      - name: Build release APK with non-secret defaults
+        run: flutter build apk --release
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: duo-trend-android-release
+          path: apps/duo_trend_app/build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
