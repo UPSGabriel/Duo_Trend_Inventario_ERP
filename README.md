@@ -66,13 +66,15 @@ Copy-Item apps/duo_trend_app/config/app_config.example.json apps/duo_trend_app/c
   "SUPABASE_PUBLISHABLE_KEY": "sb_publishable_...",
   "GOOGLE_OAUTH_CLIENT_ID": "",
   "AUTH_REDIRECT_URL": "com.duotrend.erp://login-callback/",
-  "EMAIL_SOFIA": "",
-  "EMAIL_GABRIEL": "",
   "ORGANIZATION_NAME": "Duo Trend"
 }
 ```
 
-`EMAIL_SOFIA` y `EMAIL_GABRIEL` son placeholders administrativos. No deben convertirse en constantes Dart ni registrarse en logs.
+Sofía y Gabriel son nombres funcionales de los copropietarios. Sus correos o
+identificadores de acceso no forman parte de `AppConfig`, no se reciben mediante
+`dart-define` y no quedan dentro del APK o del ejecutable Windows. La
+autorización se administra exclusivamente en Supabase mediante membresías,
+invitaciones o un procedimiento administrativo seguro del lado servidor.
 
 ## Ejecutar Flutter
 
@@ -133,13 +135,15 @@ La firma Android de producción y el instalador Windows pertenecen a una fase po
 - RLS está activado en todas las tablas expuestas.
 - Los helpers `SECURITY DEFINER` usan `search_path` vacío y viven en un esquema no expuesto.
 - La sesión se persistirá mediante almacenamiento seguro de plataforma.
+- Ningún correo o identificador de propietario se compila en el cliente.
+- Las identidades de Sofía y Gabriel se autorizan únicamente en Supabase.
 - La interfaz no sustituye las validaciones de PostgreSQL.
 
 Consulta [SECURITY.md](docs/SECURITY.md). Si encuentras una vulnerabilidad, no publiques secretos ni datos del negocio en un issue público.
 
 ## OAuth pendiente
 
-La Fase 0 prepara las URLs y el contrato de configuración, pero **no declara Google OAuth funcional**. Todavía deben configurarse Google Cloud, el proveedor Google de Supabase, la allowlist/invitaciones y el retorno por plataforma. Los pasos están en [GOOGLE_AUTH.md](docs/GOOGLE_AUTH.md).
+La Fase 0 prepara las URLs y el contrato de configuración, pero **no declara Google OAuth funcional**. Todavía deben configurarse Google Cloud, el proveedor Google de Supabase, las membresías/invitaciones administradas del lado servidor y el retorno por plataforma. Los pasos están en [GOOGLE_AUTH.md](docs/GOOGLE_AUTH.md).
 
 ## Documentación
 

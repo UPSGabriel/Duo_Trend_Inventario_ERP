@@ -14,6 +14,10 @@ void main() {
     expect(find.byType(LoginScreen), findsOneWidget);
     expect(find.text('Integración pendiente'), findsOneWidget);
     expect(find.text('Continuar con Google'), findsOneWidget);
+    expect(
+      find.text('Sofía y Gabriel · membresías en Supabase'),
+      findsOneWidget,
+    );
 
     await tester.tap(find.text('Continuar con Google'));
     await tester.pumpAndSettle();

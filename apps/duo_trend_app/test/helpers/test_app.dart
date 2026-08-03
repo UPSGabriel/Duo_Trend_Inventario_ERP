@@ -10,8 +10,6 @@ const testConfig = AppConfig(
   supabasePublishableKey: '',
   googleOAuthClientId: '',
   authRedirectUrl: 'com.duotrend.erp://login-callback/',
-  emailSofia: '',
-  emailGabriel: '',
   organizationName: 'Duo Trend',
 );
 

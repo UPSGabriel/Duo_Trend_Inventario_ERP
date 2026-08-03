@@ -24,7 +24,7 @@ Puerta de salida:
 ## Fase 1 — Autenticación, organización y catálogo
 
 - Google OAuth con PKCE y retorno Android/Windows.
-- Invitaciones/allowlist para `EMAIL_SOFIA` y `EMAIL_GABRIEL`.
+- Invitaciones y membresías de Sofía y Gabriel administradas exclusivamente en Supabase.
 - Perfiles, membresías, organización y cambio de unidad.
 - Categorías, marcas, productos, variantes e imágenes.
 - Stock inicial transaccional, búsqueda y alertas básicas.

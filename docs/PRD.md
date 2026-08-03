@@ -14,7 +14,7 @@ El negocio maneja dos líneas distintas de productos y necesita una única fuent
 - `TECNOLOGIA_ACCESORIOS`: unidad predeterminada de Sofía.
 - `BELLEZA_MODA`: unidad predeterminada de Gabriel.
 - Ambos serán `OWNER` después de un proceso seguro de invitación.
-- Los correos se suministrarán externamente como `EMAIL_SOFIA` y `EMAIL_GABRIEL`.
+- Sus identidades se autorizarán exclusivamente en Supabase; ningún correo se compilará en Flutter.
 
 ## 4. Usuarios
 

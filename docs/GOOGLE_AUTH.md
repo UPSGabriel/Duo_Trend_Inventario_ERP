@@ -55,7 +55,16 @@ com.duotrend.erp://login-callback/
 
 ## Allowlist/invitaciones
 
-Autenticarse no autoriza a entrar al negocio. La Fase 1 añadirá una invitación normalizada y de uso único para `EMAIL_SOFIA` y `EMAIL_GABRIEL`, configurados fuera de Git.
+Autenticarse no autoriza a entrar al negocio. Sofía y Gabriel son nombres
+funcionales de los copropietarios, no datos de configuración del cliente. Sus
+correos o identificadores nunca se envían mediante `dart-define`, no se incluyen
+como assets y no quedan dentro del APK o del ejecutable Windows.
+
+La Fase 1 implementará en Supabase una invitación normalizada y de uso único, o
+un procedimiento administrativo equivalente ejecutado desde un backend seguro.
+Después de verificar la identidad, ese proceso creará o activará la fila de
+`organization_members` con el rol aprobado. Flutter solo consultará el resultado
+de la membresía mediante RLS; nunca decidirá quién es propietario.
 
 Si Google autentica otro correo:
 
@@ -65,6 +74,12 @@ Si Google autentica otro correo:
 - El intento se registra sin conservar tokens ni información innecesaria.
 
 No se implementará un trigger que conceda rol OWNER basándose únicamente en metadata controlada por el cliente.
+
+La carga inicial, revocación o corrección de una membresía de propietario debe
+realizarse desde Supabase Dashboard, una migración administrativa aprobada o un
+servicio seguro con credenciales de servidor. El procedimiento debe validar la
+cuenta de Auth, registrar la aprobación y mantener cualquier correo fuera de Git,
+logs del cliente y artefactos compilados.
 
 ## Casos de prueba de Fase 1
 

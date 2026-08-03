@@ -45,10 +45,11 @@ class SettingsScreen extends ConsumerWidget {
                 detail: 'Cliente y redirect; implementación pendiente',
                 ready: false,
               ),
-              _StatusTile(
-                label: 'Invitaciones de propietarios',
-                detail: 'Placeholders externos EMAIL_SOFIA / EMAIL_GABRIEL',
-                ready: config.areOwnerPlaceholdersConfigured,
+              const _StatusTile(
+                label: 'Sofía y Gabriel',
+                detail: 'Autorización exclusiva mediante membresías '
+                    'administradas en Supabase',
+                ready: false,
               ),
             ],
           ),

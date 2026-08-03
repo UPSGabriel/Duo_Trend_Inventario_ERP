@@ -9,8 +9,6 @@ void main() {
         supabasePublishableKey: '',
         googleOAuthClientId: '',
         authRedirectUrl: 'com.duotrend.erp://login-callback/',
-        emailSofia: '',
-        emailGabriel: '',
         organizationName: 'Duo Trend',
       );
       const configured = AppConfig(
@@ -18,8 +16,6 @@ void main() {
         supabasePublishableKey: 'public-test-value',
         googleOAuthClientId: '',
         authRedirectUrl: 'com.duotrend.erp://login-callback/',
-        emailSofia: '',
-        emailGabriel: '',
         organizationName: 'Duo Trend',
       );
 
@@ -33,8 +29,6 @@ void main() {
         supabasePublishableKey: 'public-test-value',
         googleOAuthClientId: 'public-client-id',
         authRedirectUrl: 'other.app://login-callback/',
-        emailSofia: '',
-        emailGabriel: '',
         organizationName: 'Duo Trend',
       );
       const configured = AppConfig(
@@ -42,8 +36,6 @@ void main() {
         supabasePublishableKey: 'public-test-value',
         googleOAuthClientId: 'public-client-id',
         authRedirectUrl: 'com.duotrend.erp://login-callback/',
-        emailSofia: '',
-        emailGabriel: '',
         organizationName: 'Duo Trend',
       );
 
@@ -51,18 +43,16 @@ void main() {
       expect(configured.isOAuthConfigured, isTrue);
     });
 
-    test('no considera listos los propietarios con un solo placeholder', () {
+    test('conserva solo datos públicos de presentación', () {
       const config = AppConfig(
         supabaseUrl: '',
         supabasePublishableKey: '',
         googleOAuthClientId: '',
         authRedirectUrl: 'com.duotrend.erp://login-callback/',
-        emailSofia: 'configured-externally',
-        emailGabriel: '',
         organizationName: 'Duo Trend',
       );
 
-      expect(config.areOwnerPlaceholdersConfigured, isFalse);
+      expect(config.organizationName, 'Duo Trend');
     });
   });
 }

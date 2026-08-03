@@ -78,7 +78,7 @@ erDiagram
 
 La migración crea la organización Duo Trend y las dos unidades con UUID determinísticos. No inserta usuarios, membresías ni correos. `seed.sql` incluye únicamente una segunda organización y usuarios simulados para pruebas locales cuando Supabase dispone de sus fixtures; no se enlaza a identidades reales.
 
-La asignación de propietarios se hará en Fase 1 mediante un proceso administrativo que normalice el correo, valide una invitación vigente y relacione `auth.uid()` con la organización.
+La asignación de propietarios se hará en Fase 1 mediante un proceso administrativo del lado servidor que verifique la identidad, valide una invitación vigente y relacione `auth.uid()` con la organización. Los correos permanecerán exclusivamente en Supabase y no se enviarán a Flutter como configuración.
 
 ## RLS de Fase 0
 

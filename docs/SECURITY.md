@@ -59,6 +59,8 @@ Los helpers de políticas retornan booleanos y no exponen registros.
 - Redirect URL exacta y específica de Duo Trend.
 - Proveedor Google configurado solo en Supabase.
 - Registro público no equivale a acceso: un usuario de Auth sin invitación no obtiene membresía.
+- Los correos de Sofía y Gabriel permanecen en Supabase y nunca se compilan en Flutter.
+- La condición de propietario se concede únicamente mediante una membresía creada por un proceso administrativo seguro del lado servidor.
 - Intentos no autorizados se registrarán con minimización de datos.
 - Sesión expirada vuelve al login con mensaje claro.
 

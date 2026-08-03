@@ -57,7 +57,8 @@ Lee antes de modificar: `docs/PRD.md`, `docs/ARCHITECTURE.md`, `docs/DATABASE.md
 
 - Nunca confirmes `.env` reales, `app_config.local.json`, service role keys, client secrets, tokens, contraseñas, keystores o certificados.
 - Flutter solo puede recibir `SUPABASE_URL`, la publishable key y valores públicos mediante `--dart-define`.
-- `EMAIL_SOFIA` y `EMAIL_GABRIEL` siempre son placeholders externos hasta que el administrador los configure.
+- Nunca envíes correos o identificadores de propietarios a Flutter mediante `dart-define`, assets u otra configuración compilada.
+- Sofía y Gabriel pueden aparecer como descripción funcional; su autorización se gestiona exclusivamente en Supabase mediante membresías, invitaciones o un procedimiento administrativo seguro del lado servidor.
 - No registres secretos, sesiones ni datos personales innecesarios en logs o auditoría.
 - Los datos demo deben estar marcados como demo y no ejecutarse automáticamente en producción.
 

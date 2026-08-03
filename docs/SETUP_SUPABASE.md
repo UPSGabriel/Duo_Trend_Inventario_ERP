@@ -7,7 +7,7 @@ La Fase 0 proporciona configuración local, migración y pruebas. No crea ni enl
 ## Requisitos
 
 - Docker Desktop en ejecución.
-- Supabase CLI estable.
+- Supabase CLI `2.111.0`, versión fijada en CI para esta fase.
 - Acceso administrativo al proyecto de Duo Trend para el despliegue remoto.
 
 ## Entorno local
@@ -53,16 +53,33 @@ supabase db push
 
 ## Datos iniciales
 
-La migración crea Duo Trend y sus unidades, pero no usuarios. `seed.sql` es solo para desarrollo local. Los propietarios se asignarán en Fase 1 después de configurar invitaciones.
+La migración crea Duo Trend y sus unidades, pero no usuarios. `seed.sql` es solo para desarrollo local. Sofía y Gabriel se describen funcionalmente como copropietarios; sus identidades y correos no forman parte de la configuración Flutter. Los propietarios se asignarán en Fase 1 mediante un proceso seguro en Supabase.
 
 ## Variables
 
 - `SUPABASE_URL`: URL pública del proyecto.
 - `SUPABASE_PUBLISHABLE_KEY`: clave pública compatible con RLS.
 - `ORGANIZATION_NAME`: nombre visible; por defecto Duo Trend.
-- `EMAIL_SOFIA`, `EMAIL_GABRIEL`: entradas externas para el proceso administrativo futuro.
 
-No añadas `SUPABASE_SERVICE_ROLE_KEY` al archivo de la app, a GitHub Actions de build cliente ni a un artefacto.
+No añadas correos o identificadores de propietarios, `SUPABASE_SERVICE_ROLE_KEY`
+ni otras credenciales administrativas al archivo de la app, a GitHub Actions de
+build cliente ni a un artefacto.
+
+## Autorización administrativa de propietarios
+
+La autorización de Sofía y Gabriel se realizará exclusivamente en Supabase. La
+app Flutter no recibe sus correos y no puede crear una membresía por sí sola.
+
+El procedimiento aprobado para Fase 1 deberá:
+
+1. Verificar la identidad fuera del cliente y crear o invitar la cuenta en Supabase Auth desde un entorno administrativo seguro.
+2. Resolver el `auth.users.id` en el servidor sin confiar en metadata enviada por Flutter.
+3. Crear o activar `organization_members` para Duo Trend con el rol y la unidad aprobados.
+4. Registrar la aprobación administrativa con minimización de datos.
+5. Permitir revocar la membresía sin modificar ni redistribuir el APK o el ejecutable Windows.
+
+Hasta que exista ese flujo verificado, no se debe crear una RPC pública de
+bootstrap ni conceder `OWNER` automáticamente por correo, nombre o metadata.
 
 ## Verificación posterior
 

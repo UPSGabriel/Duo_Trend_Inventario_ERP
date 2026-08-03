@@ -75,9 +75,9 @@ class LoginScreen extends ConsumerWidget {
               label: 'OAuth y redirect',
               configured: config.isOAuthConfigured,
             ),
-            _ConfigurationRow(
-              label: 'Invitaciones de propietarios',
-              configured: config.areOwnerPlaceholdersConfigured,
+            const _ConfigurationRow(
+              label: 'Sofía y Gabriel · membresías en Supabase',
+              configured: false,
             ),
             if (kDebugMode) ...<Widget>[
               const Divider(height: 32),

@@ -154,7 +154,7 @@ flowchart LR
 
 ## Manejo de configuración
 
-`AppConfig` lee constantes de compilación. Si faltan URL o publishable key, la app muestra un estado de configuración pendiente sin imprimir los valores. `service_role`, secretos OAuth y llaves de firma quedan fuera del cliente en todos los ambientes.
+`AppConfig` lee únicamente constantes públicas de compilación. Si faltan URL o publishable key, la app muestra un estado de configuración pendiente sin imprimir los valores. Los correos e identificadores de propietarios no forman parte de `AppConfig`, assets ni `dart-define`: sus identidades se administran exclusivamente en Supabase mediante invitaciones, membresías o procedimientos seguros del lado servidor. `service_role`, secretos OAuth y llaves de firma quedan fuera del cliente en todos los ambientes.
 
 ## Observabilidad
 
